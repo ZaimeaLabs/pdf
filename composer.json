@@ -1,13 +1,14 @@
 {
-    "name": "zaimealabs/pdf",
+    "name": "zaimea/pdf",
     "license": "MIT",
     "homepage": "https://zaimea.com",
-    "description": "The ZaimeaLabs PDF package.",
+    "description": "A lightweight and flexible PDF generator for Laravel applications. It provides a clean, fluent builder to create invoices, reports and other document types directly in your app—without heavy dependencies or complicated setup.",
     "keywords": [
         "invoices",
         "laravel",
         "pdf",
         "reports",
+        "zaimea",
         "zaimealabs"
     ],
     "authors": [
@@ -19,18 +20,19 @@
     "require": {
         "php": "^8.2",
         "ext-bcmath": "*",
-        "dompdf/dompdf": "^2.0",
-        "nesbot/carbon": "^2.67|^3.0",
-        "illuminate/view": "^10.0|^11.0|^12.0",
-        "illuminate/support": "^10.0|^11.0|^12.0"
+        "dompdf/dompdf": "^3.0",
+        "nesbot/carbon": "^3.0",
+        "illuminate/view": "^12.0",
+        "illuminate/support": "^12.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0|^9.0|^10.0",
-        "pestphp/pest": "^2.0|^3.0"
+        "orchestra/testbench": "^10.0",
+        "phpstan/phpstan": "^1.12.23",
+        "pestphp/pest": "^3.0"
     },
     "autoload": {
         "psr-4": {
-            "ZaimeaLabs\\PDF\\": ""
+            "Zaimea\\PDF\\": "src/"
         }
     },
     "autoload-dev": {
@@ -41,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ZaimeaLabs\\PDF\\PDFServiceProvider"
+                "Zaimea\\PDF\\PDFServiceProvider"
             ]
         },
         "branch-alias": {

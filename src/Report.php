@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ZaimeaLabs\PDF;
+namespace Zaimea\PDF;
 
 use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use ZaimeaLabs\PDF\Traits\Setters;
+use Zaimea\PDF\Traits\Setters;
 
 class Report
 {
@@ -152,7 +152,7 @@ class Report
      * Return a new instance of Report.
      *
      * @param string $name
-     * @return \ZaimeaLabs\PDF\Report
+     * @return \Zaimea\PDF\Report
      */
     public static function make($name = 'Report'): Report
     {

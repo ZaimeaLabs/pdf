@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ZaimeaLabs\PDF;
+namespace Zaimea\PDF;
 
 use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use ZaimeaLabs\PDF\Traits\Setters;
+use Zaimea\PDF\Traits\Setters;
 
 class Invoice
 {
@@ -175,7 +175,7 @@ class Invoice
      * Return a new instance of Invoice.
      *
      * @param string $name
-     * @return \ZaimeaLabs\PDF\Invoice
+     * @return \Zaimea\PDF\Invoice
      */
     public static function make($name = 'Invoice'): Invoice
     {
@@ -239,7 +239,7 @@ class Invoice
     public function formatCurrency(): \stdClass
     {
         if(null === $this->currencies) {
-            $this->currencies = json_decode(file_get_contents(__DIR__ . '/Currencies.json'));
+            $this->currencies = json_decode(file_get_contents(__DIR__ . '/../Currencies.json'));
         }
         $currency = $this->currency;
 
@@ -275,7 +275,7 @@ class Invoice
      */
     public function totalPrice(): float
     {
-        return floatval(bcadd(strval($this->subTotalPrice()), $this->taxPrice(), $this->decimals));
+        return floatval(bcadd(strval($this->subTotalPrice()), (string)$this->taxPrice(), $this->decimals));
     }
 
     /**
@@ -294,13 +294,13 @@ class Invoice
      * @param  object $tax_rate
      * @return mixed
      */
-    public function taxPrice(Object $tax_rate = null): mixed
+    public function taxPrice(?Object $tax_rate = null): mixed
     {
         if (is_null($tax_rate)) {
             $tax_total = 0;
             foreach($this->tax_rates as $taxe){
                 if ($taxe['tax_type'] == 'percentage') {
-                    $tax_total += bcdiv(bcmul($taxe['tax'], strval($this->subTotalPrice()), $this->decimals), '100', $this->decimals);
+                    $tax_total += bcdiv(bcmul((string)$taxe['tax'], strval($this->subTotalPrice()), $this->decimals), '100', $this->decimals);
                     continue;
                 }
                 $tax_total += $taxe['tax'];
@@ -309,7 +309,7 @@ class Invoice
         }
 
         if ($tax_rate->tax_type == 'percentage') {
-            return bcdiv(bcmul($tax_rate->tax, strval($this->subTotalPrice()), $this->decimals), '100', $this->decimals);
+            return bcdiv(bcmul((string)$tax_rate->tax, strval($this->subTotalPrice()), $this->decimals), '100', $this->decimals);
         }
 
         return $tax_rate->tax;
@@ -323,7 +323,7 @@ class Invoice
      */
     public function taxPriceFormatted($tax_rate): string
     {
-        return number_format($this->taxPrice($tax_rate), $this->decimals, $this->getDecPoint(), $this->getThousandsSep());
+        return number_format((int)$this->taxPrice($tax_rate), $this->decimals, $this->getDecPoint(), $this->getThousandsSep());
     }
 
     /**

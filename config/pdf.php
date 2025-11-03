@@ -3,6 +3,59 @@
 return [
     /*
     |--------------------------------------------------------------------------
+    | Remote Assets
+    |--------------------------------------------------------------------------
+    |
+    | This option controls whether Dompdf is allowed to load remote assets such
+    | as images, fonts, or stylesheets over HTTP/HTTPS. Disable this if you want
+    | to restrict PDF rendering to local resources only for security or
+    | performance reasons. You may override this per generated PDF.
+    |
+    */
+    'is_remote_enabled' => env('PDF_REMOTE_ENABLED', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | PHP Execution in Templates
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, Dompdf will allow execution of PHP code inside templates,
+    | either through <?php ?> tags or <script type="text/php"> blocks. For
+    | security reasons, this is disabled by default. Only enable this if your
+    | templates are fully trusted and controlled by your application.
+    |
+    */
+    'is_php_enabled' => env('PDF_PHP_ENABLED', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Insecure SSL
+    |--------------------------------------------------------------------------
+    |
+    | This setting controls whether Dompdf should bypass SSL certificate
+    | verification when fetching remote assets. It is disabled by default and
+    | should only be used in development environments or when working with
+    | self-signed certificates. Never enable this in production.
+    |
+    */
+    'allow_insecure_ssl' => env('PDF_ALLOW_INSECURE_SSL', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Temporary Directory
+    |--------------------------------------------------------------------------
+    |
+    | The directory Dompdf will use for temporary files, including its font
+    | cache, downloaded images, and internal processing. By default, it points
+    | to storage/framework/cache/pdf. Make sure this directory is writable by
+    | your application. You may customize the path to match your deployment
+    | environment.
+    |
+    */
+    'temp_dir' => env('PDF_TEMP_DIR', storage_path('framework/cache/pdf')),
+
+    /*
+    |--------------------------------------------------------------------------
     | Default Currency
     |--------------------------------------------------------------------------
     |
@@ -49,7 +102,7 @@ return [
     | This value is the default pdf logo that is going to be used in pdfs.
     | You can change it on each pdf individually.
     */
-    'logo' => 'https://cdn.custura.de/art/pdf-generator.jpg',
+    'logo' => null,
 
     /*
     |--------------------------------------------------------------------------

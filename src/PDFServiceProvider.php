@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ZaimeaLabs\PDF;
+namespace Zaimea\PDF;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -15,11 +15,11 @@ class PDFServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'pdf');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'pdf');
 
         $this->publishes([
-            __DIR__.'/resources/views' => resource_path('views/vendor/pdf'),
-            __DIR__.'/config/pdf.php'  => config_path('pdf.php'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/pdf'),
+            __DIR__.'/../config/pdf.php'  => config_path('pdf.php'),
         ], 'pdf');
     }
 
@@ -31,7 +31,7 @@ class PDFServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/config/pdf.php', 'pdf'
+            __DIR__.'/../config/pdf.php', 'pdf'
         );
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ZaimeaLabs\PDF\Traits;
+namespace Zaimea\PDF\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -145,7 +145,7 @@ trait Setters
      * @param \Carbon\Carbon $due_date
      * @return self
      */
-    public function due_date(Carbon $due_date = null): self
+    public function due_date(?Carbon $due_date = null): self
     {
         $this->due_date = $due_date;
         return $this;

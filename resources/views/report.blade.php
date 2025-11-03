@@ -118,7 +118,7 @@
                     <tr>
                         <th>#</th>
                         <th>Date</th>
-                        <th>Name</th>{{  }}
+                        <th>Name</th>
                         @if($data->checks->get('start'))
                             <th>Start</th>
                         @endif
