@@ -41,4 +41,4 @@ For issues or suggestions: [GitHub Issues](https://github.com/zaimealabs/pdf/iss
 
 ## License
 
-Ranks is open-sourced software licensed under the [MIT license](LICENSE).
+PDF is open-sourced software licensed under the [MIT license](LICENSE).
