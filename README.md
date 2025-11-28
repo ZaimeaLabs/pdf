@@ -1,7 +1,7 @@
 <p align="center"><img src=".github/pdf.svg" alt="PDF" width="300">
 
 <p align="center">
-    <a href="https://github.com/zaimealabs/pdf/actions"><img src="https://github.com/zaimealabs/pdf/actions/workflows/pdf-tests.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://github.com/zaimealabs/pdf/actions"><img src="https://github.com/zaimealabs/pdf/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
     <a href="https://packagist.org/packages/zaimea/pdf"><img src="https://img.shields.io/packagist/dt/zaimea/pdf" alt="Total Downloads"></a>
     <a href="https://packagist.org/packages/zaimea/pdf"><img src="https://img.shields.io/packagist/v/zaimea/pdf" alt="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/zaimea/pdf"><img src="https://img.shields.io/packagist/l/zaimea/pdf" alt="License"></a>

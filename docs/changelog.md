@@ -7,4 +7,4 @@ sidebar: true
 rightbar: false
 ---
 
-All notable changes to PDF are documented [on GitHub](https://github.com/zaimealabs/pdf/blob/main/CHANGELOG.md)
+All notable changes to `PDF` are documented [on GitHub](https://github.com/zaimealabs/pdf/blob/main/CHANGELOG.md)
