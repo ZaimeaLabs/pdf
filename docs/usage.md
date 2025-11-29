@@ -7,7 +7,7 @@ sidebar: true
 rightbar: true
 ---
 
-# Metrics Usage
+# PDF Usage
 
 [[TOC]]
 
